@@ -49,7 +49,7 @@ static atomic_t g_bRuntimeRecord;
 #endif
 
 static char IMMR_DEB = false;
-#include <ImmVibeSPI.c>
+#include "ImmVibeSPI.c"
 #if (defined(VIBE_DEBUG) && defined(VIBE_RECORD)) || defined(VIBE_RUNTIME_RECORD)
 #include <tspdrvRecorder.c>
 #endif
