@@ -35,15 +35,15 @@ extern struct module __this_module;
 #ifdef CONFIG_MODVERSIONS
 /* Mark the CRC weak since genksyms apparently decides not to
  * generate a checksums for some symbols */
-#define __CRC_SYMBOL(sym, sec)					\
+define __CRC_SYMBOL(sym, sec)					\
 	extern void *__crc_##sym __attribute__((weak));		\
 	static const unsigned long __kcrctab_##sym		\
 	__used							\
 	__attribute__((section("___kcrctab" sec "+" #sym), unused))	\
 	= (unsigned long) &__crc_##sym;
-#else
-#define __CRC_SYMBOL(sym, sec)
-#endif
+else
+define __CRC_SYMBOL(sym, sec)
+endif
 
 /* For every exported symbol, place a struct in the __ksymtab section */
 #define __EXPORT_SYMBOL(sym, sec)				\
